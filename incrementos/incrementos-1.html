@@ -1,0 +1,112 @@
+<html>
+<head>
+  <meta charset="utf-8" lang="es">
+  <title>Incrementos: Ejemplo 1</title>
+  <style>
+    pre { color: blue; }
+  </style>
+</head>
+<body>
+<h1>Incrementos: ejemplo 1</h1>
+<script>
+var cont=0;
+</script>
+<script>
+alert( "1ª secuencia: usando cont=cont+1" );
+cont=0;
+
+cont=cont+1;
+alert( cont );
+
+cont=cont+1;
+alert( cont );
+
+cont=cont+1;
+alert( cont );
+</script>
+
+
+<script>
+alert( "2ª secuencia: usando ++cont fuera de una expresión" );
+cont=0;
+
+++cont;
+alert( cont );
+
+++cont;
+alert( cont );
+
+++cont;
+alert( cont );
+</script>
+
+<script>
+alert( "3ª secuencia: usando cont++ fuera de una expresión" );
+cont=0;
+
+cont++;
+alert( cont );
+
+cont++;
+alert( cont );
+
+cont++;
+alert( cont );
+</script>
+
+
+
+<script>
+alert( "4ª secuencia: usando ++cont DENTRO de una expresión" );
+cont=0;
+
+alert( ++cont );
+
+alert( ++cont );
+
+alert( ++cont );
+</script>
+
+<script>
+alert( "5ª secuencia: usando cont++ DENTRO de una expresión" );
+cont=0;
+
+alert( cont++ );
+
+alert( cont++ );
+
+alert( cont++ );
+</script>
+
+<h1>Conclusiones</h1>
+<h2>Si NO forman parte de una expresión, entonces da igual usar ++cont que cont++</h2>
+<h3>
+  <pre>
+    for( var i=0; i<10; ++i ) { // instrucciones }
+  </pre>
+Funciona exactamente igual a:
+  <pre>
+    for( var i=0; i<10; i++ ) { // instrucciones }
+  </pre>
+<h2>Si FORMAN parte de una expresión, entonces:</h2>
+<h3><pre>
+  alert( ++cont );
+</pre>
+es equivalente a:
+<pre>
+  cont=cont+1;
+  alert( cont );
+</pre>
+Mientras que:
+<pre>
+  alert( ++cont );
+</pre>
+es equivalente a:
+<pre>
+  alert( cont );
+  cont=cont+1;
+</pre>
+
+
+</body>
+</html>
