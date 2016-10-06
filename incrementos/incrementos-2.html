@@ -1,0 +1,38 @@
+<html>
+<head>
+  <meta charset="utf-8" lang="es">
+  <title>Incrementos: Ejemplo 2</title>
+  <style>
+  .recuadro {
+    border: 1px solid rgba(0,0,255,1);
+    background-color: rgba(0,0,255,0.5);
+  }
+  </style>
+</head>
+<body>
+<h1>Incrementos: ejemplo 2</h1>
+<div id="contenido"></div>
+<script>
+var cont=0;
+var lienzo=document.getElementById( "contenido" );
+alert( "Pulsa OK para comenzar el ejemplo" );
+</script>
+<script>
+lienzo.innerHTML+="<h2>Dibujando con PREINCREMENTO</h2>";
+
+cont=0;
+lienzo.innerHTML+="<div class='recuadro' style='width: "+((++cont)*100)+"'>Soy un div</div>\n";
+lienzo.innerHTML+="<div class='recuadro' style='width: "+((++cont)*100)+"'>Soy un div</div>\n";
+lienzo.innerHTML+="<div class='recuadro' style='width: "+((++cont)*100)+"'>Soy un div</div>\n";
+</script>
+
+<script>
+lienzo.innerHTML+="<h2>Dibujando con POSTINCREMENTO</h2>";
+
+cont=0;
+lienzo.innerHTML+="<div class='recuadro' style='width: "+((cont++)*100)+"'>Soy un div</div>\n";
+lienzo.innerHTML+="<div class='recuadro' style='width: "+((cont++)*100)+"'>Soy un div</div>\n";
+lienzo.innerHTML+="<div class='recuadro' style='width: "+((cont++)*100)+"'>Soy un div</div>\n";
+</script>
+</body>
+</html>
