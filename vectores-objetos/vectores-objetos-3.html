@@ -1,0 +1,51 @@
+<html>
+<head>
+  <meta charset="utf-8" lang="es">
+  <title>Vectores y objetos. Ejemplo 3: Vectores de objetos</title>
+</head>
+<body>
+<h1>Vectores y Objetos. Ejemplo 3: Vectores de objetos</h1>
+<h4>
+  En este ejemplo, creamos un vector que, a su vez, contiene objetos.
+</h4>
+<div id="resultado"></div>
+<script>
+// 1. Declaramos la función que crea los objetos
+function Registro( unNombre, unPago ) {
+  // Propiedades
+  this.nombre=unNombre;
+  this.pago=unPago;
+
+  // Métodos
+  this.comoLinea=function() {
+    return this.nombre
+      + " ha pagado "
+      + this.pago.toFixed(2) // toFixed muestra el dato con 2 decimales
+      + " euros.";
+  }
+}
+
+// Creamos el vector
+var registros=[];
+
+// Creamos los objetos dentro del vector
+registros.push( new Registro( "Angel", 0.9 ) );
+registros.push( new Registro( "Beatriz", 134.3 ) );
+registros.push( new Registro( "Camila", 233.6 ) );
+
+// Se pueden modificar al objeto accediendo al vector por posición
+// y al objeto por su atributo
+registros[0].nombre="Angel Luis";
+</script>
+
+<script>
+  // Muestro los datos en pantalla
+  var r=document.getElementById( "resultado" );
+
+  // Recorro el vector y accedo al método comoLinea de cada objeto que contiene
+  for( var i=0; i<registros.length; ++i ) {
+    r.innerHTML+="<div>"+registros[i].comoLinea()+"</div>";
+  }
+</script>
+</body>
+</html>

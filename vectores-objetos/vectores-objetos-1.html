@@ -1,0 +1,44 @@
+<html>
+<head>
+  <meta charset="utf-8" lang="es">
+  <title>Vectores y objetos. Ejemplo 1: solo vectores</title>
+</head>
+<body>
+<h1>Vectores y Objetos. Ejemplo 1: Solo vectores</h1>
+<h4>
+  En este ejemplo, creamos un vector de nombres y otro de pagos y asociamos cada pago a cada nombre por la posición en el vector.
+</h4>
+<div id="resultado"></div>
+<script>
+// 1. Declaramos los vectores
+var nombres=[];
+var pagos=[];
+
+// 2. Añadimos datos a cada una de sus posiciones
+nombres[0]="An9"; // Acceso por posición
+nombres[1]="Bernardo"; // Acceso por posición
+nombres.push( "Carlos" ); // Añade al final
+
+pagos[0]=0.60;
+pagos[1]=16.90;
+pagos[2]=21.23;
+
+// 3. Se pueden modificar los datos accediendo por posición
+nombres[0]="Ana Mari";
+</script>
+
+<script>
+// Muestro los datos en pantalla
+var r=document.getElementById( "resultado" );
+
+// Recorro los vectores y accedo por posición
+for( var i=0; i<nombres.length; ++i ) {
+  r.innerHTML+="<div>"
+    + nombres[i]
+    + " ha pagado "
+    + pagos[i].toFixed(2) // toFixed muestra el dato con 2 decimales
+    + " euros.</div>";
+}
+</script>
+</body>
+</html>

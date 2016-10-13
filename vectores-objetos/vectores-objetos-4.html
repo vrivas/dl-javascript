@@ -1,0 +1,68 @@
+<html>
+<head>
+  <meta charset="utf-8" lang="es">
+  <title>Vectores y objetos. Ejemplo 4: Vectores de objetos que contienen vectores</title>
+</head>
+<body>
+<h1>Vectores y Objetos. Ejemplo 4: Vectores de objetos que contienen vectores</h1>
+<h4>
+  En este ejemplo, creamos un vector que a su vez contiene objetos... y cada objeto incluye un vector entre sus propiedades.
+</h4>
+<div id="resultado"></div>
+<script>
+// 1. Declaramos la función que crea los objetos
+function Registro( unNombre ) {
+  // Propiedades
+  this.nombre=unNombre;
+  this.pagos=[];
+
+  // Métodos
+  this.aniadePago=function( unPago ) {
+    this.pagos.push( unPago );
+  }
+
+  this.comoLinea=function() {
+    var toRet=this.nombre
+      + " ha realizado los siguientes pagos: ";
+    for( var i=0; i<this.pagos.length; ++i ) {
+      toRet+=this.pagos[i].toFixed(2) // toFixed muestra el dato con 2 decimales
+        + "€, ";
+    }
+    return toRet;
+  }
+}
+
+// Creamos el vector
+var registros=[];
+
+// Creamos los objetos dentro del vector
+registros.push( new Registro( "Antonio" ) );
+registros.push( new Registro( "Bartolome" ) );
+registros.push( new Registro( "Cecilia" ) );
+
+// Se pueden modificar al objeto accediendo al vector por posición
+// y al objeto por su atributo
+registros[0].nombre="Antonio María";
+
+// Añado pagos a las personas
+registros[0].aniadePago( 0.8 );
+registros[0].aniadePago( 0.1 );
+
+registros[1].aniadePago( 10.0 );
+
+registros[2].aniadePago( 280.1 );
+registros[2].aniadePago( 1002.8 );
+registros[2].aniadePago( 345.94 );
+</script>
+
+<script>
+  // Muestro los datos en pantalla
+  var r=document.getElementById( "resultado" );
+
+  // Recorro el vector y accedo al método comoLinea de cada objeto que contiene
+  for( var i=0; i<registros.length; ++i ) {
+    r.innerHTML+="<div>"+registros[i].comoLinea()+"</div>";
+  }
+</script>
+</body>
+</html>

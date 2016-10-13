@@ -1,0 +1,48 @@
+<html>
+<head>
+  <meta charset="utf-8" lang="es">
+  <title>Vectores y objetos. Ejemplo 2: solo objetos</title>
+</head>
+<body>
+<h1>Vectores y Objetos. Ejemplo 2: Solo objetos</h1>
+<h4>
+  En este ejemplo, creamos varios objetos que almacenan el nombr y pago de cada persona.
+</h4>
+<div id="resultado"></div>
+<script>
+// 1. Declaramos la función que crea los objetos
+function Registro( unNombre, unPago ) {
+  // Propiedades
+  this.nombre=unNombre;
+  this.pago=unPago;
+
+  // Métodos
+  this.comoLinea=function() {
+    return this.nombre
+      + " ha pagado "
+      + this.pago.toFixed(2) // toFixed muestra el dato con 2 decimales
+      + " euros.";
+  }
+}
+
+
+// Creamos los objetos
+var a=new Registro( "Alicia", 0.6 );
+var b=new Registro( "Benito", 15.8 );
+var c=new Registro( "Charo", 23.7 );
+
+// Se pueden modificar los datos accediendo a los atributos
+a.nombre="Alice";
+</script>
+
+<script>
+  // Muestro los datos en pantalla
+  var r=document.getElementById( "resultado" );
+
+  // Recorro los objetos y llamo al método comoLinea de cada uno de ellos
+  r.innerHTML+="<div>"+a.comoLinea()+"</div>";
+  r.innerHTML+="<div>"+b.comoLinea()+"</div>";
+  r.innerHTML+="<div>"+c.comoLinea()+"</div>";
+</script>
+</body>
+</html>
