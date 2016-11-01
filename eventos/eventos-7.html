@@ -14,8 +14,11 @@
     document.getElementById('pie').innerHTML=valor;
   }
 
-
-
+  function actualizaConsola(evento) {
+    document.getElementById('consola').innerHTML="Cambiando el nombre";
+    setTimeout( "document.getElementById('consola').innerHTML=''"
+                , 1000 );
+  }
   </script>
 </head>
 <body>
@@ -37,12 +40,15 @@
   Firmado: <u><span id="pie"></span></u>
 </p>
 
+<div id="consola" style="border-top: solid 1px blue;">
+</div>
 
 <script>
 var nombre=document.getElementById('nombre');
 // Método 2: añadimos tantos manejadores como queramos
 nombre.addEventListener("keyup", actualizaCabecera);
 nombre.addEventListener("keyup", actualizaPie);
+nombre.addEventListener("keyup", actualizaConsola);
 
 
 </script>

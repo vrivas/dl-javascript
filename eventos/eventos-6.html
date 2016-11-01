@@ -9,19 +9,6 @@
     document.getElementById('cabecera').innerHTML=valor;
     document.getElementById('pie').innerHTML=valor;
   }
-
-  // Un manejador por cada elmento a cambiar
-  function actualizaCabecera(evento) {
-    var valor=document.getElementById('nombre').value;
-    document.getElementById('cabecera').innerHTML=valor;
-  }
-
-  function actualizaPie(evento) {
-    var valor=document.getElementById('nombre').value;
-    document.getElementById('pie').innerHTML=valor;
-  }
-
-
   </script>
 </head>
 <body>
@@ -48,10 +35,6 @@
 var nombre=document.getElementById('nombre');
 // Método 1: todo se hace un solo manejador
 nombre.onkeyup=cambioEnNombre;
-
-// Método 2: añadimos tantos manejadores como queramos
-//nombre.addListener("keyup", actualizaCabecera);
-//nombre.addListener("keyup", actualizaPie);
 
 </script>
 </body>
