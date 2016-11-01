@@ -1,0 +1,22 @@
+<html>
+<head>
+  <meta charset="utf-8" lang="es">
+  <title>Eventos: Ejemplo 3</title>
+  <script>
+  // Función de respuesta a evento
+  function amplia(elemento) {
+    elemento.width="500";
+  }
+  function reduce(elemento) {
+    elemento.width="200";
+  }
+  </script>
+</head>
+<body>
+<h1>Eventos: ejemplo 3 - cambiando el tamaño de la imagen</h1>
+<img src="1.jpg"
+      width="200"
+      onmouseover="amplia(this)"
+      onmouseout="reduce(this)">
+</body>
+</html>

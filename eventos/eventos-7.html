@@ -1,0 +1,50 @@
+<html>
+<head>
+  <meta charset="utf-8" lang="es">
+  <title>Eventos: Ejemplo 7</title>
+  <script>
+  // Un manejador por cada elmento a cambiar
+  function actualizaCabecera(evento) {
+    var valor=document.getElementById('nombre').value;
+    document.getElementById('cabecera').innerHTML=valor;
+  }
+
+  function actualizaPie(evento) {
+    var valor=document.getElementById('nombre').value;
+    document.getElementById('pie').innerHTML=valor;
+  }
+
+
+
+  </script>
+</head>
+<body>
+<h1>Eventos: ejemplo 7 - Múltiples acciones CON addEventListener</h1>
+
+<p>
+  Indique su nombre: <input id="nombre" value="">
+</p>
+
+<h3>Cabecera</h3>
+<p>
+  Don/Doña <strong><span id="cabecera"></span></strong> con domicilio en...
+</p>
+<p>
+  SOLICITA ...
+</p>
+<h3>Pie</h3>
+<p>
+  Firmado: <u><span id="pie"></span></u>
+</p>
+
+
+<script>
+var nombre=document.getElementById('nombre');
+// Método 2: añadimos tantos manejadores como queramos
+nombre.addEventListener("keyup", actualizaCabecera);
+nombre.addEventListener("keyup", actualizaPie);
+
+
+</script>
+</body>
+</html>

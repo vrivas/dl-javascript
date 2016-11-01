@@ -1,0 +1,58 @@
+<html>
+<head>
+  <meta charset="utf-8" lang="es">
+  <title>Eventos: Ejemplo 6</title>
+  <script>
+  // Manejador único para hacer todos los cambios
+  function cambioEnNombre(evento) {
+    var valor=document.getElementById('nombre').value;
+    document.getElementById('cabecera').innerHTML=valor;
+    document.getElementById('pie').innerHTML=valor;
+  }
+
+  // Un manejador por cada elmento a cambiar
+  function actualizaCabecera(evento) {
+    var valor=document.getElementById('nombre').value;
+    document.getElementById('cabecera').innerHTML=valor;
+  }
+
+  function actualizaPie(evento) {
+    var valor=document.getElementById('nombre').value;
+    document.getElementById('pie').innerHTML=valor;
+  }
+
+
+  </script>
+</head>
+<body>
+<h1>Eventos: ejemplo 6 - Múltiples acciones SIN addEventListener</h1>
+
+<p>
+  Indique su nombre: <input id="nombre" value="">
+</p>
+
+<h3>Cabecera</h3>
+<p>
+  Don/Doña <strong><span id="cabecera"></span></strong> con domicilio en...
+</p>
+<p>
+  SOLICITA ...
+</p>
+<h3>Pie</h3>
+<p>
+  Firmado: <u><span id="pie"></span>
+</p>
+
+
+<script>
+var nombre=document.getElementById('nombre');
+// Método 1: todo se hace un solo manejador
+nombre.onkeyup=cambioEnNombre;
+
+// Método 2: añadimos tantos manejadores como queramos
+//nombre.addListener("keyup", actualizaCabecera);
+//nombre.addListener("keyup", actualizaPie);
+
+</script>
+</body>
+</html>

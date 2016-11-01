@@ -1,0 +1,17 @@
+<html>
+<head>
+  <meta charset="utf-8" lang="es">
+  <title>Eventos: Ejemplo 1</title>
+  <script>
+  // Función de respuesta a evento
+  function cambiaImagen(elemento) {
+    elemento.src="2.jpg";
+  }
+  </script>
+</head>
+<body>
+<h1>Eventos: ejemplo 1 - El ejemplo más simple</h1>
+<img src="1.jpg" width="200" onmouseover="this.src='2.jpg'">
+<img src="1.jpg" width="200" onclick="cambiaImagen(this)">
+</body>
+</html>

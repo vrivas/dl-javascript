@@ -1,0 +1,21 @@
+<html>
+<head>
+  <meta charset="utf-8" lang="es">
+  <title>Eventos: Ejemplo 2</title>
+  <script>
+  // Función de respuesta a evento
+  function cambiaImagen(elemento) {
+    if( elemento.src.substr(-5)=="1.jpg" ) { // Uso substr para mirar la última parte del nombre del fichero de la imagen
+      elemento.src="2.jpg";
+    } else {
+      elemento.src="1.jpg";
+    }
+  }
+  </script>
+</head>
+<body>
+<h1>Eventos: ejemplo 2 - reutilización de funciones</h1>
+<img src="1.jpg" width="200" onmouseover="cambiaImagen(this)">
+<img src="1.jpg" width="200" onclick="cambiaImagen(this)">
+</body>
+</html>
