@@ -1,0 +1,99 @@
+<html>
+<head>
+  <meta charset="utf-8" lang="es">
+  <title>DOM: Ejemplo 1: getElementById</title>
+  <style>
+  .lista-imagenes {
+    width: 25%;
+    float: left;
+    min-height: 600px;
+    border-right: 1px solid rgba( 120,120,200,1);
+  }
+  .imagen-grande {
+    width: 70%;
+    float: right;
+    min-height: 600px;
+    border-left: 1px solid rgba( 120,200,120,1);
+    text-align: center;
+  }
+  .preview {
+    width: 100px;
+    height: 100px;
+    float: left;
+    margin: .2em;
+  }
+
+  .resaltado {
+     box-shadow: 0 0 15px rgba( 120,0,255,0.8);
+  }
+  #laImagen {
+    height: 600px;
+    margin: .3em;
+  }
+
+  #descripcionImagen {
+    text-align: center;
+  }
+  </style>
+
+<script>
+/**
+ * Asigna un manejador o callback a los eventos onmouseover y onmouseout a todas las imágenes pequeñas
+ */
+ function asignaManejadores() {
+   var imagenes=document.getElementById("listado-imagenes").getElementsByTagName("img");
+   for( var i=0; i<imagenes.length; ++i ) {
+     imagenes[i].addEventListener( "mouseover", muestra );
+     imagenes[i].addEventListener( "mouseover", resalta );
+     imagenes[i].addEventListener( "mouseout", desresalta );
+   }
+ }
+/**
+* Modifica la propiedad src de la imagen "grande", colocada a la derecha, y le añade un título en el div inferior
+* @param evento Objeto con los detalles del evento
+*/
+function muestra( evento ) {
+  // Cambiar al imagen
+  document.getElementById('laImagen').src=evento.target.src; // USO DE document.getElementById
+  // Otra alternativa que habría tenido el mismo efecto
+  // document.getElementById('laImagen').setAttribute( "src", imagen.getAttribute("src")) ;
+
+  // Añade el título
+  document.getElementById('descripcionImagen').innerHTML="<strong>Título</strong>: <em>"+evento.target.getAttribute( "desc" )+"</em>";
+}
+
+/**
+ * Añade borde a la imagen en la que está el ratón
+ * @param evento Objeto con los detalles del evento
+ */
+ function resalta( evento ) {
+   evento.target.setAttribute("class", "preview resaltado");
+ }
+
+ /**
+  * Quita el borde a la imagen cuando sale el ratón
+  * @param evento Objeto con los detalles del evento
+  */
+  function desresalta( evento ) {
+    evento.target.setAttribute("class", "preview");
+  }
+</script>
+</head>
+<body>
+<h1>DOM: ejemplo 4 - Cambiando la propiedad <em>class</em></h1>
+<div class="lista-imagenes" id="listado-imagenes">
+  <img class="preview" src="https://vrivas.files.wordpress.com/2016/11/300x300.png" desc="Montañas">
+  <img class="preview" src="https://vrivas.files.wordpress.com/2015/12/fondo-arboles-parque-jaen.jpg" desc="Árboles">
+  <img class="preview" src="https://vrivas.files.wordpress.com/2014/12/victor-conc-robots_0.jpg" desc="El profe">
+  <img class="preview" src="https://vrivas.files.wordpress.com/2016/11/img_20161027_184722-e1479205635696.jpg" desc="Granadas">
+  <img class="preview" src="https://vrivas.files.wordpress.com/2016/11/img_20160926_1744481-e1479205567535.jpg" desc="Flores">
+</div>
+<div class="imagen-grande">
+  <img src="" id="laImagen">
+  <div id="descripcionImagen"></div>
+</div>
+<script>
+  asignaManejadores();
+</script
+</body>
+</html>

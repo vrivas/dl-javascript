@@ -1,0 +1,62 @@
+<html>
+<head>
+  <meta charset="utf-8" lang="es">
+  <title>DOM: Ejemplo 1: getElementById</title>
+  <style>
+  .lista-imagenes {
+    width: 25%;
+    float: left;
+    min-height: 600px;
+    border-right: 1px solid rgba( 120,120,200,1);
+  }
+  .imagen-grande {
+    width: 70%;
+    float: right;
+    min-height: 600px;
+    border-left: 1px solid rgba( 120,200,120,1);
+
+  }
+  .preview {
+    width: 100px;
+    height: 100px;
+    float: left;
+    margin: .2em;
+  }
+  #laImagen {
+    height: 600px;
+    margin: .2em;
+  }
+  </style>
+
+<script>
+/**
+* Modifica la propiedad src de la imagen "grande", colocada a la derecha
+* @param imagen Objeto que sufre el evento de pasar el ratón por encima
+*/
+function muestra( imagen ) {
+  // Cambia la imagen
+  document.getElementById('laImagen').src=imagen.src; // USO DE document.getElementById
+  // Otra alternativa que habría tenido el mismo efecto
+  // document.getElementById('laImagen').setAttribute( "src", imagen.getAttribute("src")) ;
+}
+</script>
+</head>
+<body>
+<h1>DOM: ejemplo 1 - Accediendo a un elemento con <em>getElementById</em></h1>
+<div class="lista-imagenes">
+  <img class="preview" src="https://vrivas.files.wordpress.com/2016/11/300x300.png"
+        onmouseover="muestra(this)">
+  <img class="preview" src="https://vrivas.files.wordpress.com/2015/12/fondo-arboles-parque-jaen.jpg"
+        onmouseover="muestra(this)">
+  <img class="preview" src="https://vrivas.files.wordpress.com/2014/12/victor-conc-robots_0.jpg"
+        onmouseover="muestra(this)">
+  <img class="preview" src="https://vrivas.files.wordpress.com/2016/11/img_20161027_184722-e1479205635696.jpg"
+        onmouseover="muestra(this)">
+  <img class="preview" src="https://vrivas.files.wordpress.com/2016/11/img_20160926_1744481-e1479205567535.jpg"
+        onmouseover="muestra(this)">
+</div>
+<div class="imagen-grande">
+  <img src="" id="laImagen">
+</div>
+</body>
+</html>
